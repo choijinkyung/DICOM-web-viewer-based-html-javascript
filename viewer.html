@@ -123,7 +123,8 @@
 </body>
 <div class="wrapper">
     <div class="Toolbar">
-        <button id='stackScrollButton' class="toolButton" onclick="handleStackScrollMouseWheel(this)">Stack scroll</button>
+        <button id='stackScrollButton' class="toolButton" onclick="handleStackScrollMouseWheel(this)">Stack scroll
+        </button>
         <button class="toolButton" onclick="handleInvert()">Invert</button>
         <button class="toolButton" onclick="handleEllipticalRoi(this)">Eliptical ROI</button>
         <button class="toolButton" onclick="handleLength(this)">Length</button>
@@ -135,7 +136,7 @@
     </div>
     <div class="left">
         <div class="stack-wrapper">
-            <div id='thumbnail1' class="stack" onclick="loadAndViewImage(imageId1)" ></div>
+            <div id='thumbnail1' class="stack" onclick="loadAndViewImage(imageId1)"></div>
             <div id='thumbnail2' class="stack" onclick="loadAndViewImage(imageId2)"></div>
             <div id='thumbnail3' class="stack" onclick="loadAndViewImage(imageId1)"></div>
             <div id='thumbnail4' class="stack" onclick="loadAndViewImage(imageId2)"></div>
@@ -148,8 +149,6 @@
             <div id="dicomImage" class='dicom-viewer'>
             </div>
             <div id='bottomleft' class="bottomleft">
-                <div id="bottomleft1"></div>
-                <div id="bottomleft2"></div>
             </div>
             <div id='bottomright' class="bottomright">
                 <div id="bottomright1"></div>
@@ -225,7 +224,7 @@
         });
     }
 
-    function updateImage(imageId){
+    function updateImage(imageId) {
         cornerstone.disable(element);
         cornerstone.enable(element);
         cornerstone.loadImage(imageId).then(function (image) {
@@ -233,13 +232,12 @@
             cornerstone.displayImage(element, image, viewport);
             loaded = true;
 
+            handleStackScrollMouseWheel(element);
+
         }).catch(function (err) {
             alert(err);
         });
     }
-
-
-
 
     function loadAndViewImage(imageId) {
         //clean canvas and add new elements.
@@ -254,28 +252,27 @@
             loaded = true;
             series = imageId;
 
-            document.getElementById('bottomleft1').textContent = "Render Time: " + image.loadTimeInMS + "ms";
-            document.getElementById('bottomleft2').textContent = 'Image #' + imgNum + '/' + (series.length-1);
+            document.getElementById('bottomleft').textContent = 'Image #' + imgNum + '/' + (series.length - 1);
 
             element.onwheel = wheelE;
-            function wheelE(e) {
-                 e.stopPropagation();
-                e.preventDefault();
 
+            function wheelE(e) {
+                e.stopPropagation();
+                e.preventDefault();
                 if (e.wheelDelta < 0 || e.detail > 0) {
                     if (imgNum < series.length) {
-                        if(imgNum!==series.length-1){
+                        if (imgNum !== series.length - 1) {
                             imgNum++;
-                            document.getElementById('bottomleft2').textContent = 'Image #' + imgNum + '/' + (series.length-1);
+                            document.getElementById('bottomleft').textContent = 'Image #' + imgNum + '/' + (series.length - 1);
                         }
                     }
                 } else {
                     if (imgNum > 0) {
                         imgNum--;
-                        document.getElementById('bottomleft2').textContent = 'Image #' + imgNum + '/' + (series.length-1);
+                        document.getElementById('bottomleft').textContent = 'Image #' + imgNum + '/' + (series.length - 1);
                     } else {
                         imgNum = 0;
-                        document.getElementById('bottomleft2').textContent = 'Image #' + imgNum + '/' + (series.length-1);
+                        document.getElementById('bottomleft').textContent = 'Image #' + imgNum + '/' + (series.length - 1);
                         return false;
                     }
                 }
@@ -327,35 +324,31 @@
             handleStackScrollMouseWheel(element);
 
 
-
-            window.onkeydown = function keyE(e){
-                if(e.keyCode===37){
+            window.onkeydown = function keyE(e) {
+                if (e.keyCode === 37) {
                     if (imgNum > 0) {
                         imgNum--;
                         updateImage(series[imgNum]);
-                        document.getElementById('bottomleft').textContent = 'Image #' + imgNum + '/' + (series.length-1);
+                        document.getElementById('bottomleft').textContent = 'Image #' + imgNum + '/' + (series.length - 1);
                     }
-                }
-                else if(e.keyCode===38){
+                } else if (e.keyCode === 38) {
                     if (imgNum < series.length) {
                         imgNum++;
                         updateImage(series[imgNum]);
-                        document.getElementById('bottomleft').textContent = 'Image #' + imgNum + '/' + (series.length-1);
+                        document.getElementById('bottomleft').textContent = 'Image #' + imgNum + '/' + (series.length - 1);
                     }
 
-                }
-                else if(e.keyCode===39){
+                } else if (e.keyCode === 39) {
                     if (imgNum < series.length) {
                         imgNum++;
                         updateImage(series[imgNum]);
-                        document.getElementById('bottomleft').textContent = 'Image #' + imgNum + '/' + (series.length-1);
+                        document.getElementById('bottomleft').textContent = 'Image #' + imgNum + '/' + (series.length - 1);
                     }
-                }
-                else if(e.keyCode===40){
+                } else if (e.keyCode === 40) {
                     if (imgNum > 0) {
                         imgNum--;
                         updateImage(series[imgNum]);
-                        document.getElementById('bottomleft').textContent = 'Image #' + imgNum + '/' +(series.length-1);
+                        document.getElementById('bottomleft').textContent = 'Image #' + imgNum + '/' + (series.length - 1);
                     }
                 }
 
@@ -364,7 +357,6 @@
             alert(JSON.stringfy(err));
         });
     }
-
 
 
     function handleLength(element) {
@@ -458,13 +450,6 @@
         cornerstoneTools.setToolActive('StackScrollMouseWheel', {});
     }
 
-    function handleKeyboard(element){
-        // Enable keyboard input
-        cornerstoneTools.keyboardInput.enable(element);
-
-
-    }
-
     function addActiveClass(element) {
         let elements = document.querySelectorAll('.button');
 
@@ -497,21 +482,6 @@
         }
     }
 
-    function handleArrow(element) {
-        const ArrowTool = cornerstoneTools.ArrowTool;
-
-        addActiveClass(element);
-
-        if (loaded) {
-
-            cornerstoneTools.addTool(ArrowTool);
-            cornerstoneTools.setToolActive('Arrow', {mouseButtonMask: 1});
-
-        } else {
-            cornerstoneTools.removeTool('Arrow');
-        }
-    }
-
     function handleEllipticalRoi(element) {
         const EllipticalRoiTool = cornerstoneTools.EllipticalRoiTool;
 
@@ -526,5 +496,4 @@
         }
     }
 </script>
-
 </html>
