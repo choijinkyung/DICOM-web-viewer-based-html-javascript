@@ -1,0 +1,117 @@
+.left {
+    width: 15%;
+    height: 100%;
+    float: left;
+    background-color: black;
+    color: white;
+    position: relative;
+}
+.right {
+    width: 85%;
+    height: 100%;
+    float: right;
+    background-color: black;
+    position: relative;
+
+}
+.dicom-wrapper {
+    width: 95%;
+    height: 680px;
+    background-color: black;
+    position: relative;
+}
+.wrapper {
+    background-color: black;
+    width:100%;
+    height:800px;
+    position: relative;
+}
+.dicom-viewer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.Toolbar {
+    width: 100%;
+    height: 60px;
+    background-color: black;
+    position: relative;
+    margin-left: 500px;
+}
+.toolButton {
+    width: 40px;
+    height: 40px;
+    background-color: gray;
+    margin-top: 10px;
+    position: relative;
+}
+.sliceButton{
+    width: 80px;
+    height: 40px;
+    background-color: gray;
+    margin-top: 10px;
+    color:white;
+    position: relative;
+}
+.bottomleft {
+    float: left;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    color: rgb(255, 255, 204);
+
+}
+.bottomright {
+    float: right;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    color: rgb(255, 255, 204);
+}
+.stack {
+    width: 100px;
+    height: 100px;
+    color: navy;
+    margin: 10px;
+    border-style: solid;
+}
+.stack-wrapper {
+    height: 800px;
+    width: 150px;
+    overflow: scroll;
+}
+.center {
+    text-align: center;
+    bottom: 0;
+    color: rgb(255, 255, 204);
+}
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+#drop-content1{
+    position: absolute;
+    z-index: 1;
+}
+#drop-content2{
+    position: absolute;
+    z-index: 1;
+}
+#drop-content1 a{
+    display:block;
+    font-size: 20px;
+    background-color: #dfdfdf;
+    color: black;
+    text-decoration: none;
+    padding: 10px 36px;
+    margin: 2px 0px 0px 0px;
+}
+#drop-content2 a{
+    display:block;
+    font-size: 20px;
+    background-color: #dfdfdf;
+    color: black;
+    text-decoration: none;
+    padding: 10px 36px;
+    margin: 2px 0px 0px 0px;
+}
