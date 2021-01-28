@@ -75,10 +75,11 @@
 </div>
 <script src="./tool.js"></script>
 <script>
-
+    cornerstoneTools.external.Hammer = Hammer;
     cornerstoneTools.external.cornerstone = cornerstone;
     cornerstoneWADOImageLoader.external.dicomParser = dicomParser;
     cornerstoneWADOImageLoader.external.cornerstone = cornerstone;
+    cornerstoneTools.external.cornerstoneMath = cornerstoneMath
     cornerstoneTools.init({
         showSVGCursors: true
     });
@@ -174,7 +175,7 @@
             loaded = true;
 
             handleStackScrollMouseWheel(element);
-
+            handleStackScrollMultiTouch(element);
         }).catch(function (err) {
 
         });
@@ -264,7 +265,7 @@
                 document.addEventListener('mouseup', mouseUpHandler);
             });
             handleStackScrollMouseWheel(element);
-
+            handleStackScrollMultiTouch(element);
 
             window.onkeydown = function keyE(e) {
                 if (e.keyCode === 37) {

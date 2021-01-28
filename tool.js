@@ -178,7 +178,29 @@ function handleProbe(element) {
         cornerstoneTools.removeTool('Probe');
     }
 }
+function handleStackScrollMultiTouch(htmlElement){
+    const element = document.getElementById('dicomImage');
+    const StackScrollMultiTouchTool = cornerstoneTools.StackScrollMultiTouchTool;
 
+    if (series.length < 1) {
+        alert('upload several DICOM.');
+        return false;
+    }
+
+    addActiveClass(htmlElement);
+
+    const imageIds = series.map(seriesImage => seriesImage);
+    const stack = {
+        currentImageIdIndex: 0,
+        imageIds
+    };
+
+    cornerstoneTools.addStackStateManager(element, ['stack']);
+    cornerstoneTools.addToolState(element, 'stack', stack);
+
+    cornerstoneTools.addTool(StackScrollMultiTouchTool);
+    cornerstoneTools.setToolActive('StackScrollMultiTouchTool', {});
+}
 function handleStackScrollMouseWheel(htmlElement) {
     const element = document.getElementById('dicomImage');
     const StackScrollMouseWheelTool = cornerstoneTools.StackScrollMouseWheelTool;
