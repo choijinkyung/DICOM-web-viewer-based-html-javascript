@@ -103,6 +103,11 @@
         'dicomweb://s3.amazonaws.com/lury/PTCTStudy/1.3.6.1.4.1.25403.52237031786.3872.20100510032220.11.dcm',
     ];
 
+    $(document.ready(function (){
+        $("#button").on('click touchstart',function(){
+            $(".stack").css("display","block");
+        });
+    }));
 
     const element = document.getElementById('dicomImage');
     cornerstone.enable(element);
