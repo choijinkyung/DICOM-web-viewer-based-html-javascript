@@ -69,12 +69,14 @@
     color: rgb(255, 255, 204);
 }
 .stack {
-    width: 120px;
+    width: 110px;
     height: 120px;
-    background-color: black;
+    color: white;
     margin: 10px;
     border-style: solid;
+    position:relative;
 }
+
 .stack-wrapper {
     height: 800px;
     width: 150px;
