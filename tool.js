@@ -178,6 +178,9 @@ function handleProbe(element) {
         cornerstoneTools.removeTool('Probe');
     }
 }
+function handleReferenceLine(element){
+
+}
 function handleStackScrollTool(htmlElement){
     const element = document.getElementById('dicomImage');
     const StackScrollTool = cornerstoneTools.StackScrollTool;
