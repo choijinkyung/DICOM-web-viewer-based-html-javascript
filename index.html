@@ -122,19 +122,6 @@
         document.getElementById('thumbnail5'),
     ];
 
-    for(let i=0;i<thumbnail.length;i++){
-        if (i === 0) {
-            thumbnail[i].addEventListener('touchstart',loadAndViewImage(imageId1),false);
-        } else if (i === 1) {
-            thumbnail[i].addEventListener('touchstart',loadAndViewImage(imageId1),false);
-        } else if (i === 2) {
-            thumbnail[i].addEventListener('touchstart',loadAndViewImage(imageId1),false);
-        } else if (i === 3) {
-            thumbnail[i].addEventListener('touchstart',loadAndViewImage(imageId1),false);
-        } else if (i === 4) {
-            thumbnail[i].addEventListener('touchstart',loadAndViewImage(imageId1),false);
-        }
-    }
     for (let i = 0; i < thumbnail.length; i++) {
         if (i === 0) {
             handleThumbnail(imageId1, thumbnail[0]);
@@ -148,6 +135,20 @@
             handleThumbnail(imageId1, thumbnail[4]);
         }
     }
+    for(let i=0;i<thumbnail.length;i++){
+        if (i === 0) {
+            thumbnail[i].addEventListener('touchstart',loadAndViewImage(imageId1),false);
+        } else if (i === 1) {
+            thumbnail[i].addEventListener('touchstart',loadAndViewImage(imageId1),false);
+        } else if (i === 2) {
+            thumbnail[i].addEventListener('touchstart',loadAndViewImage(imageId1),false);
+        } else if (i === 3) {
+            thumbnail[i].addEventListener('touchstart',loadAndViewImage(imageId1),false);
+        } else if (i === 4) {
+            thumbnail[i].addEventListener('touchstart',loadAndViewImage(imageId1),false);
+        }
+    }
+
 
     /*Drop down*/
     function dp_menu1(){
