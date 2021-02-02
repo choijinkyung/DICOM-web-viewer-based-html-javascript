@@ -201,7 +201,7 @@ function handleStackScrollTool(htmlElement){
     cornerstoneTools.addStackStateManager(element, ['stack']);
     cornerstoneTools.addToolState(element, 'stack', stack);
 
-    cornerstoneTools.addTool(StackScrollToolTool);
+    cornerstoneTools.addTool(StackScrollTool);
     cornerstoneTools.setToolActive('StackScrollTool', {mouseButtonMask:1});
 }
 function handleStackScrollMouseWheel(htmlElement) {
