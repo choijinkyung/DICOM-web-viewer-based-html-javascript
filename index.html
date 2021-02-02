@@ -175,7 +175,7 @@
             loaded = true;
 
             handleStackScrollMouseWheel(element);
-            handleStackScrollMultiTouch(element);
+            handleStackScrollTool(element);
         }).catch(function (err) {
 
         });
@@ -239,7 +239,6 @@
                     lastX = e.pageX;
                     lastY = e.pageY;
 
-
                     if (mouseButton === 2) {
                         let viewport = cornerstone.getViewport(element);
                         viewport.voi.windowWidth += (deltaX / viewport.scale);
@@ -265,7 +264,7 @@
                 document.addEventListener('mouseup', mouseUpHandler);
             });
             handleStackScrollMouseWheel(element);
-            handleStackScrollMultiTouch(element);
+            handleStackScrollTool(element);
 
             window.onkeydown = function keyE(e) {
                 if (e.keyCode === 37) {
@@ -296,6 +295,8 @@
                 }
 
             }
+
+            element.addEventListener('touchstart')
         }).catch(function (err) {
         });
     }

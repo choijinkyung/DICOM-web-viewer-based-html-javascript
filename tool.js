@@ -178,9 +178,9 @@ function handleProbe(element) {
         cornerstoneTools.removeTool('Probe');
     }
 }
-function handleStackScrollMultiTouch(htmlElement){
+function handleStackScrollTool(htmlElement){
     const element = document.getElementById('dicomImage');
-    const StackScrollMultiTouchTool = cornerstoneTools.StackScrollMultiTouchTool;
+    const StackScrollTool = cornerstoneTools.StackScrollTool;
 
     if (series.length < 1) {
         alert('upload several DICOM.');
@@ -198,8 +198,8 @@ function handleStackScrollMultiTouch(htmlElement){
     cornerstoneTools.addStackStateManager(element, ['stack']);
     cornerstoneTools.addToolState(element, 'stack', stack);
 
-    cornerstoneTools.addTool(StackScrollMultiTouchTool);
-    cornerstoneTools.setToolActive('StackScrollMultiTouchTool', {});
+    cornerstoneTools.addTool(StackScrollToolTool);
+    cornerstoneTools.setToolActive('StackScrollTool', {mouseButtonMask:1});
 }
 function handleStackScrollMouseWheel(htmlElement) {
     const element = document.getElementById('dicomImage');
