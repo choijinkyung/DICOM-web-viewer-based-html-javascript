@@ -178,8 +178,21 @@ function handleProbe(element) {
         cornerstoneTools.removeTool('Probe');
     }
 }
-function handleReferenceLine(element){
-
+function handleReferenceLine(){
+    const elements = cornerstone.getEnabledElements()
+    const synchronizer = new cornerstoneTools.Synchronizer(
+        'cornerstonenewimage',
+        cornerstoneTools.updateImageSynchronizer
+    )
+    elements.forEach(value => {
+        const { element } = value
+        synchronizer.add(element)
+    })
+    synchronizer.enabled = true
+    cornerstoneTools.addTool(cornerstoneTools.ReferenceLinesTool)
+    cornerstoneTools.setToolEnabled('ReferenceLines', {
+        synchronizationContext: synchronizer,
+    })
 }
 function handleStackScrollTool(htmlElement){
     const element = document.getElementById('dicomImage');
@@ -237,7 +250,6 @@ function addActiveClass(element) {
 
     element.classList.add('active');
 }
-
 function handleInvert() {
     const element = document.getElementById('dicomImage');
     const viewport = cornerstone.getViewport(element);
@@ -258,5 +270,11 @@ function handleArrowAnnotate(element) {
     } else {
         cornerstoneTools.removeTool('ArrowAnnotate');
     }
+}
+
+function handleReset(){
+    const element =  document.getElementById('dicomImage');
+    const viewport = cornerstone.getViewport(element);
+    cornerstone.reset(element);
 }
 
