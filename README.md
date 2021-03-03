@@ -1,8 +1,8 @@
 # DICOM web-viewer
 First Outsourcing Project
 
-Various cornerstone tools are available
-Project using cornerstone library
+Various cornerstone tools are available.
+<br />Project using cornerstone library.
 
 consisting of javascript, html, and css.
 
