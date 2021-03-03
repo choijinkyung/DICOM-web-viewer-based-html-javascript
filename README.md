@@ -1,9 +1,14 @@
-# web-viewer
-DICOM Web viewer 
+# DICOM web-viewer
+First Outsourcing Project
 
-![image](https://user-images.githubusercontent.com/44565579/105781831-98f7df00-5fb6-11eb-8ba4-2715be010922.png)
+Various cornerstone tools are available
+Project using cornerstone library
 
-function
+consisting of javascript, html, and css.
+
+![image](https://user-images.githubusercontent.com/44565579/109736097-3de58780-7c07-11eb-93de-1a2051b7f5b3.png)
+
+< Functions >
 1. Stack Scroll
  - Mouse Wheel
  - Keyboard Event
@@ -25,7 +30,7 @@ function
  - Reference Line Tool
  - Play Clip & Stop Clip
  
-4. Function
+4. Canvas
  - Invert
  - Reset
  - Interpolation
@@ -33,3 +38,8 @@ function
  - Sort Image By ( Slice Location, Image Number )
  
 6. Thumbnail 
+
+< To be added >
+1. Change Layout Grid
+2. 2D & 3D Viewer ( like OHIF Viewer )
+3. Print DICOM file
