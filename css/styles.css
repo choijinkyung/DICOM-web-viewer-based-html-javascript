@@ -99,6 +99,14 @@
     position: absolute;
     z-index: 1;
 }
+#drop-content3{
+    position: absolute;
+    z-index: 1;
+}
+#drop-content4{
+    position: absolute;
+    z-index: 1;
+}
 #drop-content1 a{
     display:block;
     font-size: 20px;
@@ -109,6 +117,24 @@
     margin: 2px 0px 0px 0px;
 }
 #drop-content2 a{
+    display:block;
+    font-size: 20px;
+    background-color: #dfdfdf;
+    color: black;
+    text-decoration: none;
+    padding: 10px 36px;
+    margin: 2px 0px 0px 0px;
+}
+#drop-content3 a{
+    display:block;
+    font-size: 20px;
+    background-color: #dfdfdf;
+    color: black;
+    text-decoration: none;
+    padding: 10px 36px;
+    margin: 2px 0px 0px 0px;
+}
+#drop-content4 a{
     display:block;
     font-size: 20px;
     background-color: #dfdfdf;
