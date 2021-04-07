@@ -45,7 +45,7 @@ consisting of javascript, html, and css.
 3. Print DICOM file
 
 
-##License
+## License
 ```
 MIT License
 
